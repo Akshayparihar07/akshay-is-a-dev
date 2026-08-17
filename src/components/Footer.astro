@@ -1,5 +1,6 @@
 ---
 import Container from "./Container.astro";
+import Icon from "./Icon.astro";
 import portfolio from "../data/portfolio.json";
 
 const { meta } = portfolio;
@@ -8,8 +9,19 @@ const year = new Date().getFullYear();
 
 <footer class="py-8 text-center sm:py-10" style="border-top: 1px solid var(--border);">
   <Container>
-    <p class="text-xs" style="color: var(--text-muted);">
+    <p class="inline-flex flex-wrap items-center justify-center gap-1.5 text-xs" style="color: var(--text-muted);">
+      <Icon name="code-outline" size={14} animation="pulse" />
       © {year} {meta.name}. Built with Astro, comic sans, and a little chaos.
+    </p>
+    <p class="mt-3">
+      <a
+        href="#top"
+        class="eva-parent-hover inline-flex items-center gap-1 text-xs hover:opacity-70 transition-opacity"
+        style="color: var(--text-muted);"
+      >
+        <Icon name="arrow-upward-outline" size={14} animation="zoom" />
+        Back to top
+      </a>
     </p>
   </Container>
 </footer>

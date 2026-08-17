@@ -1,5 +1,7 @@
 ---
 import Container from "./Container.astro";
+import SectionEyebrow from "./SectionEyebrow.astro";
+import Icon from "./Icon.astro";
 import portfolio from "../data/portfolio.json";
 import BlurFade from "./react/BlurFade.tsx";
 
@@ -17,12 +19,7 @@ function formatDate(iso: string) {
 <section id="blog" class="py-14 sm:py-20" style="border-top: 1px solid var(--border);">
   <Container>
     <BlurFade client:visible>
-      <span
-        class="mb-3 block text-xs font-bold uppercase tracking-widest"
-        style="color: var(--accent-from);"
-      >
-        // writing
-      </span>
+      <SectionEyebrow icon="book-open-outline">// writing</SectionEyebrow>
       <h2 class="mb-10 text-2xl font-extrabold sm:text-3xl" style="color: var(--text);">
         Latest posts
       </h2>
@@ -36,19 +33,32 @@ function formatDate(iso: string) {
           as="li"
           className="border-t border-t-[var(--border)] first:border-t-0"
         >
-          <a href={post.url} class="group block py-5">
-            <p class="text-xs font-medium" style="color: var(--text-muted);">
-              {formatDate(post.date)}
-            </p>
-            <h3
-              class="mt-1 text-lg font-bold transition-colors sm:text-xl"
-              style="color: var(--text);"
+          <a href={post.url} class="eva-parent-hover group flex items-start gap-3 py-5">
+            <span class="mt-1 shrink-0" style="color: var(--accent-from);">
+              <Icon name="file-text-outline" size={18} animation="zoom" />
+            </span>
+            <span class="min-w-0 flex-1">
+              <p class="inline-flex items-center gap-1.5 text-xs font-medium" style="color: var(--text-muted);">
+                <Icon name="calendar-outline" size={13} />
+                {formatDate(post.date)}
+              </p>
+              <h3
+                class="mt-1 text-lg font-bold transition-colors sm:text-xl"
+                style="color: var(--text);"
+              >
+                {post.title}
+              </h3>
+              <p class="mt-1 text-sm sm:text-base" style="color: var(--text-muted);">
+                {post.excerpt}
+              </p>
+            </span>
+            <span
+              class="mt-1 hidden shrink-0 opacity-40 transition-opacity group-hover:opacity-100 sm:inline-flex"
+              style="color: var(--accent-from);"
+              aria-hidden="true"
             >
-              {post.title}
-            </h3>
-            <p class="mt-1 text-sm sm:text-base" style="color: var(--text-muted);">
-              {post.excerpt}
-            </p>
+              <Icon name="arrow-ios-forward-outline" size={20} animation="zoom" />
+            </span>
           </a>
         </BlurFade>
       ))}

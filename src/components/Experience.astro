@@ -1,26 +1,29 @@
 ---
 import Container from "./Container.astro";
+import SectionEyebrow from "./SectionEyebrow.astro";
 import portfolio from "../data/portfolio.json";
 import BlurFade from "./react/BlurFade.tsx";
 import Timeline from "./react/Timeline.tsx";
+import { evaSvg } from "../lib/eva";
 
 const { experience } = portfolio;
+const periodIcon = evaSvg("calendar-outline", {
+  width: 14,
+  height: 14,
+  fill: "currentColor",
+  animation: { type: "pulse", hover: true },
+});
 ---
 
 <section id="experience" class="py-14 sm:py-20" style="border-top: 1px solid var(--border);">
   <Container>
     <BlurFade client:visible>
-      <span
-        class="mb-3 block text-xs font-bold uppercase tracking-widest"
-        style="color: var(--accent-from);"
-      >
-        // experience
-      </span>
+      <SectionEyebrow icon="briefcase-outline">// experience</SectionEyebrow>
       <h2 class="mb-10 text-2xl font-extrabold sm:text-3xl" style="color: var(--text);">
         Where I've worked
       </h2>
     </BlurFade>
 
-    <Timeline client:visible items={experience} />
+    <Timeline client:visible items={experience} periodIcon={periodIcon} />
   </Container>
 </section>

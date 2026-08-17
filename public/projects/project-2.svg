@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="Project image placeholder">
+  <rect width="960" height="540" fill="#141414"/>
+  <rect width="960" height="540" fill="url(#g)" opacity="0.7"/>
+  <defs>
+    <linearGradient id="g" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9528e8" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#d214ff" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+  <rect x="380" y="195" width="200" height="150" rx="16" fill="none" stroke="#d214ff" stroke-width="4"/>
+  <circle cx="430" cy="245" r="18" fill="#d214ff" opacity="0.75"/>
+  <path d="M396 330 l40-48 28 22 36-40 64 66 z" fill="#d214ff" opacity="0.4"/>
+  <text x="480" y="390" text-anchor="middle" font-family="Comic Sans MS, Comic Neue, cursive" font-size="18" fill="#a3a3a3">Replace with project screenshot</text>
+</svg>

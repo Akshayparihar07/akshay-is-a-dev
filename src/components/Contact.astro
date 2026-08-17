@@ -1,22 +1,42 @@
 ---
 import Container from "./Container.astro";
+import SectionEyebrow from "./SectionEyebrow.astro";
+import Icon from "./Icon.astro";
+import SocialLink from "./SocialLink.astro";
 import portfolio from "../data/portfolio.json";
 import BlurFade from "./react/BlurFade.tsx";
 import Blob from "./react/Blob.tsx";
 import ShimmerButton from "./react/ShimmerButton.tsx";
+import { evaSvg } from "../lib/eva";
 
 const { meta, socials, contact } = portfolio;
+
+const blobIcons = {
+  smile: evaSvg("smiling-face-outline", {
+    width: 20,
+    height: 20,
+    fill: "currentColor",
+    animation: { type: "pulse", hover: true },
+  }),
+  hmm: evaSvg("question-mark-circle-outline", {
+    width: 20,
+    height: 20,
+    fill: "currentColor",
+    animation: { type: "pulse", hover: true },
+  }),
+  sideEye: evaSvg("eye-outline", {
+    width: 20,
+    height: 20,
+    fill: "currentColor",
+    animation: { type: "pulse", hover: true },
+  }),
+};
 ---
 
 <section id="contact" class="py-14 sm:py-20" style="border-top: 1px solid var(--border);">
   <Container>
     <BlurFade client:visible>
-      <span
-        class="mb-3 block text-center text-xs font-bold uppercase tracking-widest"
-        style="color: var(--secondary);"
-      >
-        // contact
-      </span>
+      <SectionEyebrow icon="message-circle-outline" center>// contact</SectionEyebrow>
       <h2 class="text-center text-2xl font-extrabold sm:text-3xl" style="color: var(--text);">
         {contact.heading}
       </h2>
@@ -29,25 +49,19 @@ const { meta, socials, contact } = portfolio;
     </BlurFade>
 
     <div class="mt-8 flex justify-center">
-      <Blob client:load />
+      <Blob client:load icons={blobIcons} />
     </div>
 
     <BlurFade client:visible delay={0.2}>
       <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
         <ShimmerButton client:load href={`mailto:${meta.email}`}>
+          <Icon name="email-outline" size={16} animation="pulse" />
           {meta.email}
         </ShimmerButton>
       </div>
-      <div class="mt-6 flex justify-center gap-5 text-sm" style="color: var(--text-muted);">
+      <div class="mt-6 flex flex-wrap justify-center gap-5 text-sm" style="color: var(--text-muted);">
         {socials.map((s) => (
-          <a
-            href={s.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:opacity-70 transition-opacity"
-          >
-            {s.label}
-          </a>
+          <SocialLink label={s.label} url={s.url} />
         ))}
       </div>
     </BlurFade>

@@ -45,6 +45,7 @@
       "period": "2025 — Present",
       "role": "[Job Title]",
       "company": "[Company Name]",
+      "logo": "/companies/company-1.svg",
       "description": "[One or two sentences on what you do there and what you shipped.]",
       "tags": ["Python", "LLMs"]
     },
@@ -52,6 +53,7 @@
       "period": "2023 — 2025",
       "role": "[Job Title]",
       "company": "[Company Name]",
+      "logo": "/companies/company-2.svg",
       "description": "[One or two sentences on what you did there.]",
       "tags": ["React", "Node.js"]
     },
@@ -59,6 +61,7 @@
       "period": "2021 — 2023",
       "role": "[Job Title]",
       "company": "[Company Name]",
+      "logo": "/companies/company-3.svg",
       "description": "[One or two sentences on what you did there.]",
       "tags": ["TypeScript"]
     }
@@ -67,6 +70,7 @@
     {
       "name": "[Project Name]",
       "description": "[What it does and the problem it solves, one or two sentences.]",
+      "image": "/projects/project-1.svg",
       "tags": ["React", "Node.js"],
       "liveUrl": "#",
       "codeUrl": "#"
@@ -74,6 +78,7 @@
     {
       "name": "[Project Name]",
       "description": "[What it does and the problem it solves, one or two sentences.]",
+      "image": "/projects/project-2.svg",
       "tags": ["Python", "FastAPI"],
       "liveUrl": "#",
       "codeUrl": "#"
@@ -81,6 +86,7 @@
     {
       "name": "[Project Name]",
       "description": "[What it does and the problem it solves, one or two sentences.]",
+      "image": "/projects/project-3.svg",
       "tags": ["TypeScript", "Astro"],
       "liveUrl": "#",
       "codeUrl": "#"

@@ -1,5 +1,6 @@
 ---
 import Container from "./Container.astro";
+import Icon from "./Icon.astro";
 import portfolio from "../data/portfolio.json";
 import BlurFade from "./react/BlurFade.tsx";
 import GradientText from "./react/GradientText.tsx";
@@ -15,7 +16,6 @@ const initials = meta.name
 ---
 
 <section id="top" class="relative overflow-hidden pt-16 pb-14 sm:pt-24 sm:pb-20">
-  <!-- super minimal ambient gradient — a soft glow, not a loud background -->
   <div
     class="pointer-events-none absolute inset-0 -z-10"
     style="background: radial-gradient(600px circle at 50% 0%, color-mix(in srgb, var(--accent-from) 7%, transparent), transparent 70%);"
@@ -32,7 +32,10 @@ const initials = meta.name
       </div>
     </BlurFade>
 
-    <div class="mb-4">
+    <div class="mb-4 flex items-center justify-center gap-1.5">
+      <span style="color: var(--accent-from);">
+        <Icon name="flash-outline" size={14} animation="pulse" />
+      </span>
       <GradientText client:load className="text-xs sm:text-sm font-bold uppercase tracking-widest">
         {meta.role}
       </GradientText>
@@ -52,8 +55,12 @@ const initials = meta.name
 
     <BlurFade client:load delay={0.26}>
       <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-        <ShimmerButton client:load href="#projects">See my work →</ShimmerButton>
+        <ShimmerButton client:load href="#projects">
+          <Icon name="briefcase-outline" size={16} animation="zoom" />
+          See my work
+        </ShimmerButton>
         <ShimmerButton client:load href={`mailto:${meta.email}`} variant="ghost">
+          <Icon name="email-outline" size={16} animation="pulse" />
           Say hi
         </ShimmerButton>
       </div>

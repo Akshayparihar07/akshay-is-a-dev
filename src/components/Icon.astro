@@ -1,0 +1,21 @@
+---
+import { evaSvg, type EvaAnimationType } from "../lib/eva";
+
+interface Props {
+  name: string;
+  size?: number;
+  class?: string;
+  animation?: EvaAnimationType;
+}
+
+const { name, size = 18, class: className = "", animation } = Astro.props;
+
+const html = evaSvg(name, {
+  width: size,
+  height: size,
+  class: className,
+  animation: animation ? { type: animation, hover: true } : undefined,
+});
+---
+
+<Fragment set:html={html} />

@@ -28,7 +28,7 @@ export default function ShimmerButton({ href, children, variant = "primary" }: S
           }}
         />
       )}
-      <span className="relative">{children}</span>
+      <span className="relative inline-flex items-center gap-2">{children}</span>
     </a>
   );
 }

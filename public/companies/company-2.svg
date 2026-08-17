@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Company logo placeholder">
+  <rect width="64" height="64" rx="14" fill="#141414"/>
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#d214ff" stroke-width="3"/>
+  <text x="32" y="40" text-anchor="middle" font-family="Comic Sans MS, Comic Neue, cursive" font-size="22" font-weight="700" fill="#ffffff">C2</text>
+</svg>

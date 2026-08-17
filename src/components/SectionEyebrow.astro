@@ -1,0 +1,21 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  icon: string;
+  center?: boolean;
+}
+
+const { icon, center = false } = Astro.props;
+---
+
+<span
+  class:list={[
+    "mb-3 flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest",
+    center && "justify-center",
+  ]}
+  style="color: var(--accent-from);"
+>
+  <Icon name={icon} size={14} animation="pulse" />
+  <slot />
+</span>

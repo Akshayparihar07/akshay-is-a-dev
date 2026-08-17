@@ -5,11 +5,18 @@ interface ExperienceItem {
   period: string;
   role: string;
   company: string;
+  logo?: string;
   description: string;
   tags: string[];
 }
 
-export default function Timeline({ items }: { items: ExperienceItem[] }) {
+export default function Timeline({
+  items,
+  periodIcon,
+}: {
+  items: ExperienceItem[];
+  periodIcon?: string;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -41,13 +48,30 @@ export default function Timeline({ items }: { items: ExperienceItem[] }) {
               style={{ background: "var(--bg)", borderColor: "var(--accent-from)" }}
             />
             <p
-              className="text-xs sm:text-sm mb-1 tracking-wide uppercase"
+              className="eva-parent-hover mb-1 inline-flex items-center gap-1.5 text-xs tracking-wide uppercase sm:text-sm"
               style={{ color: "var(--text-muted)" }}
             >
+              {periodIcon ? (
+                <span
+                  className="inline-flex"
+                  dangerouslySetInnerHTML={{ __html: periodIcon }}
+                />
+              ) : null}
               {item.period}
             </p>
-            <h3 className="text-lg sm:text-xl font-bold" style={{ color: "var(--text)" }}>
-              {item.role} <span style={{ color: "var(--text-muted)" }}>· {item.company}</span>
+            <h3 className="flex items-center gap-2.5 text-lg font-bold sm:text-xl" style={{ color: "var(--text)" }}>
+              {item.logo ? (
+                <img
+                  src={item.logo}
+                  alt={`${item.company} logo`}
+                  width={28}
+                  height={28}
+                  className="h-7 w-7 shrink-0 rounded-md object-cover"
+                />
+              ) : null}
+              <span>
+                {item.role} <span style={{ color: "var(--text-muted)" }}>· {item.company}</span>
+              </span>
             </h3>
             <p className="mt-2 text-sm sm:text-base" style={{ color: "var(--text-muted)" }}>
               {item.description}

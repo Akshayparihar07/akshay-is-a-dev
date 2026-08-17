@@ -34,7 +34,13 @@ function holdHandlers(setOn: (on: boolean) => void) {
   };
 }
 
-export default function Blob() {
+type BlobIcons = {
+  smile: string;
+  hmm: string;
+  sideEye: string;
+};
+
+export default function Blob({ icons }: { icons?: BlobIcons }) {
   const [smile, setSmile] = useState(false);
   const [hmm, setHmm] = useState(false);
   const [sideEye, setSideEye] = useState(false);
@@ -91,30 +97,36 @@ export default function Blob() {
         <button
           type="button"
           className={`helmet-react ${smile ? "is-active" : ""}`}
+          aria-label="Smile eyes"
           {...holdHandlers((on) => {
             setSmile(on);
           })}
         >
-          Smile eyes
+          {icons?.smile ? (
+            <span className="inline-flex" dangerouslySetInnerHTML={{ __html: icons.smile }} />
+          ) : null}
         </button>
         <button
           type="button"
           className={`helmet-react ${hmm ? "is-active" : ""}`}
+          aria-label="Hmm"
           {...holdHandlers(setHmm)}
         >
-          Hmm
+          {icons?.hmm ? (
+            <span className="inline-flex" dangerouslySetInnerHTML={{ __html: icons.hmm }} />
+          ) : null}
         </button>
         <button
           type="button"
           className={`helmet-react ${sideEye ? "is-active" : ""}`}
+          aria-label="Side eye"
           {...holdHandlers(setSideEye)}
         >
-          Side eye
+          {icons?.sideEye ? (
+            <span className="inline-flex" dangerouslySetInnerHTML={{ __html: icons.sideEye }} />
+          ) : null}
         </button>
       </div>
-      <p className="mt-2 text-center text-xs" style={{ color: "var(--text-muted)" }}>
-        poke it — and point at the buttons
-      </p>
     </div>
   );
 }

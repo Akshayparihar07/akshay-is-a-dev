@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="Project image placeholder">
+  <rect width="960" height="540" fill="#faf8f1"/>
+  <circle cx="720" cy="80" r="180" fill="#9528e8" opacity="0.1"/>
+  <circle cx="180" cy="480" r="160" fill="#d214ff" opacity="0.08"/>
+  <rect x="380" y="195" width="200" height="150" rx="16" fill="none" stroke="#9528e8" stroke-width="4"/>
+  <circle cx="430" cy="245" r="18" fill="#9528e8" opacity="0.7"/>
+  <path d="M396 330 l40-48 28 22 36-40 64 66 z" fill="#9528e8" opacity="0.45"/>
+  <text x="480" y="390" text-anchor="middle" font-family="Comic Sans MS, Comic Neue, cursive" font-size="18" fill="#525252">Replace with project screenshot</text>
+</svg>
