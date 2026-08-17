@@ -1,0 +1,38 @@
+---
+import Container from "./Container.astro";
+import portfolio from "../data/portfolio.json";
+
+const { meta, socials } = portfolio;
+---
+
+<header
+  class="sticky top-0 z-40"
+  style="background-color: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border);"
+>
+  <Container class="flex items-center justify-between py-4">
+    <a href="#top" class="font-extrabold text-base sm:text-lg" style="color: var(--text);">
+      {meta.name}
+    </a>
+
+    <nav class="hidden sm:flex items-center gap-6 text-sm" style="color: var(--text-muted);">
+      <a href="#about" class="hover:opacity-70 transition-opacity">About</a>
+      <a href="#experience" class="hover:opacity-70 transition-opacity">Experience</a>
+      <a href="#projects" class="hover:opacity-70 transition-opacity">Projects</a>
+      <a href="#blog" class="hover:opacity-70 transition-opacity">Blog</a>
+      <a href="#contact" class="hover:opacity-70 transition-opacity">Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-3 pr-10 text-xs sm:text-sm" style="color: var(--text-muted);">
+      {socials.slice(0, 2).map((s) => (
+        <a
+          href={s.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden hover:opacity-70 transition-opacity sm:inline"
+        >
+          {s.label}
+        </a>
+      ))}
+    </div>
+  </Container>
+</header>

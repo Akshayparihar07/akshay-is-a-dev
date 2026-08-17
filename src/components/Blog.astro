@@ -1,0 +1,57 @@
+---
+import Container from "./Container.astro";
+import portfolio from "../data/portfolio.json";
+import BlurFade from "./react/BlurFade.tsx";
+
+const { blog } = portfolio;
+
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+---
+
+<section id="blog" class="py-14 sm:py-20" style="border-top: 1px solid var(--border);">
+  <Container>
+    <BlurFade client:visible>
+      <span
+        class="mb-3 block text-xs font-bold uppercase tracking-widest"
+        style="color: var(--accent-from);"
+      >
+        // writing
+      </span>
+      <h2 class="mb-10 text-2xl font-extrabold sm:text-3xl" style="color: var(--text);">
+        Latest posts
+      </h2>
+    </BlurFade>
+
+    <ul>
+      {blog.map((post, i) => (
+        <BlurFade
+          client:visible
+          delay={i * 0.06}
+          as="li"
+          className="border-t border-t-[var(--border)] first:border-t-0"
+        >
+          <a href={post.url} class="group block py-5">
+            <p class="text-xs font-medium" style="color: var(--text-muted);">
+              {formatDate(post.date)}
+            </p>
+            <h3
+              class="mt-1 text-lg font-bold transition-colors sm:text-xl"
+              style="color: var(--text);"
+            >
+              {post.title}
+            </h3>
+            <p class="mt-1 text-sm sm:text-base" style="color: var(--text-muted);">
+              {post.excerpt}
+            </p>
+          </a>
+        </BlurFade>
+      ))}
+    </ul>
+  </Container>
+</section>

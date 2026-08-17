@@ -1,0 +1,77 @@
+---
+import "../styles/global.css";
+import portfolio from "../data/portfolio.json";
+import ThemeToggle from "../components/react/ThemeToggle.tsx";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { theme, meta } = portfolio;
+const {
+  title = `${meta.name} — ${meta.role}`,
+  description = meta.tagline,
+} = Astro.props;
+
+const { light, dark } = theme;
+
+const themeCss = `
+:root {
+  --bg: ${light.background};
+  --bg-alt: ${light.backgroundAlt};
+  --text: ${light.text};
+  --text-muted: ${light.textMuted};
+  --accent-from: ${light.accentFrom};
+  --accent-to: ${light.accentTo};
+  --border: ${light.border};
+  --secondary: ${light.secondary};
+}
+html.dark {
+  --bg: ${dark.background};
+  --bg-alt: ${dark.backgroundAlt};
+  --text: ${dark.text};
+  --text-muted: ${dark.textMuted};
+  --accent-from: ${dark.accentFrom};
+  --accent-to: ${dark.accentTo};
+  --border: ${dark.border};
+  --secondary: ${dark.secondary};
+}
+`;
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content={light.background} />
+    <title>{title}</title>
+    <Fragment set:html={`<style>${themeCss}</style>`} />
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          var dark =
+            stored === "dark" ||
+            (stored !== "light" &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches);
+          if (dark) {
+            document.documentElement.classList.add("dark");
+            document.documentElement.setAttribute("data-theme", "dark");
+          } else {
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute("content", dark ? "#000000" : "#faf8f1");
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <ThemeToggle client:load />
+    <slot />
+  </body>
+</html>

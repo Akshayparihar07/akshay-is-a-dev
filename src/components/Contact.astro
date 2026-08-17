@@ -1,0 +1,55 @@
+---
+import Container from "./Container.astro";
+import portfolio from "../data/portfolio.json";
+import BlurFade from "./react/BlurFade.tsx";
+import Blob from "./react/Blob.tsx";
+import ShimmerButton from "./react/ShimmerButton.tsx";
+
+const { meta, socials, contact } = portfolio;
+---
+
+<section id="contact" class="py-14 sm:py-20" style="border-top: 1px solid var(--border);">
+  <Container>
+    <BlurFade client:visible>
+      <span
+        class="mb-3 block text-center text-xs font-bold uppercase tracking-widest"
+        style="color: var(--secondary);"
+      >
+        // contact
+      </span>
+      <h2 class="text-center text-2xl font-extrabold sm:text-3xl" style="color: var(--text);">
+        {contact.heading}
+      </h2>
+      <p
+        class="mx-auto mt-3 max-w-[46ch] text-center text-base sm:text-lg"
+        style="color: var(--text-muted);"
+      >
+        {contact.blurb}
+      </p>
+    </BlurFade>
+
+    <div class="mt-8 flex justify-center">
+      <Blob client:load />
+    </div>
+
+    <BlurFade client:visible delay={0.2}>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <ShimmerButton client:load href={`mailto:${meta.email}`}>
+          {meta.email}
+        </ShimmerButton>
+      </div>
+      <div class="mt-6 flex justify-center gap-5 text-sm" style="color: var(--text-muted);">
+        {socials.map((s) => (
+          <a
+            href={s.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:opacity-70 transition-opacity"
+          >
+            {s.label}
+          </a>
+        ))}
+      </div>
+    </BlurFade>
+  </Container>
+</section>

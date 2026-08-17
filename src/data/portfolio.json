@@ -1,0 +1,113 @@
+{
+  "theme": {
+    "_note": "Light bg (#faf8f1) and dark bg (#000) are sampled from manthanguptaa.in. Secondary/accent is the purple from his logo/favicon (#9528e8), with the brighter magenta highlight (#d214ff) also pulled from the same icon.",
+    "light": {
+      "background": "#faf8f1",
+      "backgroundAlt": "#f0ece3",
+      "text": "#000000",
+      "textMuted": "#525252",
+      "accentFrom": "#9528e8",
+      "accentTo": "#d214ff",
+      "border": "rgba(0, 0, 0, 0.10)",
+      "secondary": "#9528e8"
+    },
+    "dark": {
+      "background": "#000000",
+      "backgroundAlt": "#141414",
+      "text": "#ffffff",
+      "textMuted": "#a3a3a3",
+      "accentFrom": "#b547f2",
+      "accentTo": "#d214ff",
+      "border": "rgba(255, 255, 255, 0.12)",
+      "secondary": "#9528e8"
+    }
+  },
+  "meta": {
+    "name": "[Your Name]",
+    "role": "[Your Role, e.g. AI Engineer]",
+    "tagline": "[One line describing what you write about / build — Manthan's is \"Uncovering and Demystifying Tech and Random Ramblings\"]",
+    "avatar": "",
+    "email": "you@example.com",
+    "resumeUrl": "#"
+  },
+  "socials": [
+    { "label": "twitter", "url": "https://twitter.com/yourhandle" },
+    { "label": "github", "url": "https://github.com/yourhandle" },
+    { "label": "linkedin", "url": "https://linkedin.com/in/yourhandle" },
+    { "label": "rss", "url": "/rss.xml" }
+  ],
+  "about": {
+    "bio": "[Two or three sentences about who you are, what you work on, and what you're curious about. Write it like your blog voice, not a résumé.]",
+    "skills": ["Python", "TypeScript", "React", "PyTorch", "Astro", "PostgreSQL"]
+  },
+  "experience": [
+    {
+      "period": "2025 — Present",
+      "role": "[Job Title]",
+      "company": "[Company Name]",
+      "description": "[One or two sentences on what you do there and what you shipped.]",
+      "tags": ["Python", "LLMs"]
+    },
+    {
+      "period": "2023 — 2025",
+      "role": "[Job Title]",
+      "company": "[Company Name]",
+      "description": "[One or two sentences on what you did there.]",
+      "tags": ["React", "Node.js"]
+    },
+    {
+      "period": "2021 — 2023",
+      "role": "[Job Title]",
+      "company": "[Company Name]",
+      "description": "[One or two sentences on what you did there.]",
+      "tags": ["TypeScript"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "[Project Name]",
+      "description": "[What it does and the problem it solves, one or two sentences.]",
+      "tags": ["React", "Node.js"],
+      "liveUrl": "#",
+      "codeUrl": "#"
+    },
+    {
+      "name": "[Project Name]",
+      "description": "[What it does and the problem it solves, one or two sentences.]",
+      "tags": ["Python", "FastAPI"],
+      "liveUrl": "#",
+      "codeUrl": "#"
+    },
+    {
+      "name": "[Project Name]",
+      "description": "[What it does and the problem it solves, one or two sentences.]",
+      "tags": ["TypeScript", "Astro"],
+      "liveUrl": "#",
+      "codeUrl": "#"
+    }
+  ],
+  "blog": [
+    {
+      "title": "[Post Title]",
+      "date": "2026-08-01",
+      "excerpt": "[One sentence summary of the post.]",
+      "url": "#"
+    },
+    {
+      "title": "[Post Title]",
+      "date": "2026-06-15",
+      "excerpt": "[One sentence summary of the post.]",
+      "url": "#"
+    },
+    {
+      "title": "[Post Title]",
+      "date": "2026-04-02",
+      "excerpt": "[One sentence summary of the post.]",
+      "url": "#"
+    }
+  ],
+  "contact": {
+    "heading": "Let's connect",
+    "blurb": "Open to interesting conversations, collaboration, or just a hello. Helmet is quite interactive — poke it and see what it says."
+  }
+}

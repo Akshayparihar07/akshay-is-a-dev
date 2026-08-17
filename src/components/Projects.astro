@@ -1,0 +1,55 @@
+---
+import Container from "./Container.astro";
+import portfolio from "../data/portfolio.json";
+import BlurFade from "./react/BlurFade.tsx";
+
+const { projects } = portfolio;
+---
+
+<section id="projects" class="py-14 sm:py-20" style="border-top: 1px solid var(--border);">
+  <Container>
+    <BlurFade client:visible>
+      <span
+        class="mb-3 block text-xs font-bold uppercase tracking-widest"
+        style="color: var(--accent-from);"
+      >
+        // projects
+      </span>
+      <h2 class="mb-10 text-2xl font-extrabold sm:text-3xl" style="color: var(--text);">
+        Stuff I've shipped
+      </h2>
+    </BlurFade>
+
+    <div class="space-y-5">
+      {projects.map((project, i) => (
+        <BlurFade client:visible delay={i * 0.08}>
+          <article
+            class="rounded-2xl border p-5 transition-transform duration-200 hover:-translate-y-1 sm:p-6"
+            style="border-color: var(--border); background-color: var(--bg-alt);"
+          >
+            <h3 class="text-lg font-bold sm:text-xl" style="color: var(--text);">
+              {project.name}
+            </h3>
+            <p class="mt-2 text-sm sm:text-base" style="color: var(--text-muted);">
+              {project.description}
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <span
+                  class="rounded-full border px-2.5 py-1 text-xs"
+                  style="border-color: var(--border); color: var(--text-muted);"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <div class="mt-4 flex gap-5 text-sm font-bold">
+              <a href={project.liveUrl} style="color: var(--accent-from);">Live ↗</a>
+              <a href={project.codeUrl} style="color: var(--accent-to);">Code ↗</a>
+            </div>
+          </article>
+        </BlurFade>
+      ))}
+    </div>
+  </Container>
+</section>

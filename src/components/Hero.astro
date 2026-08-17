@@ -1,0 +1,62 @@
+---
+import Container from "./Container.astro";
+import portfolio from "../data/portfolio.json";
+import BlurFade from "./react/BlurFade.tsx";
+import GradientText from "./react/GradientText.tsx";
+import ShimmerButton from "./react/ShimmerButton.tsx";
+
+const { meta } = portfolio;
+const initials = meta.name
+  .split(" ")
+  .map((n) => n[0])
+  .join("")
+  .slice(0, 2)
+  .toUpperCase();
+---
+
+<section id="top" class="relative overflow-hidden pt-16 pb-14 sm:pt-24 sm:pb-20">
+  <!-- super minimal ambient gradient — a soft glow, not a loud background -->
+  <div
+    class="pointer-events-none absolute inset-0 -z-10"
+    style="background: radial-gradient(600px circle at 50% 0%, color-mix(in srgb, var(--accent-from) 7%, transparent), transparent 70%);"
+  >
+  </div>
+
+  <Container class="text-center">
+    <BlurFade client:load>
+      <div
+        class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border-2 text-xl font-bold sm:h-20 sm:w-20 sm:text-2xl"
+        style="border-color: var(--border); color: var(--text);"
+      >
+        {initials}
+      </div>
+    </BlurFade>
+
+    <div class="mb-4">
+      <GradientText client:load className="text-xs sm:text-sm font-bold uppercase tracking-widest">
+        {meta.role}
+      </GradientText>
+    </div>
+
+    <BlurFade client:load delay={0.1}>
+      <h1 class="text-3xl font-extrabold leading-tight sm:text-5xl" style="color: var(--text);">
+        Hey, I&rsquo;m {meta.name}
+      </h1>
+    </BlurFade>
+
+    <BlurFade client:load delay={0.18}>
+      <p class="mx-auto mt-4 max-w-[52ch] text-base sm:text-lg" style="color: var(--text-muted);">
+        {meta.tagline}
+      </p>
+    </BlurFade>
+
+    <BlurFade client:load delay={0.26}>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <ShimmerButton client:load href="#projects">See my work →</ShimmerButton>
+        <ShimmerButton client:load href={`mailto:${meta.email}`} variant="ghost">
+          Say hi
+        </ShimmerButton>
+      </div>
+    </BlurFade>
+  </Container>
+</section>

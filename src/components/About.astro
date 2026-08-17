@@ -1,0 +1,37 @@
+---
+import Container from "./Container.astro";
+import portfolio from "../data/portfolio.json";
+import BlurFade from "./react/BlurFade.tsx";
+
+const { about } = portfolio;
+---
+
+<section id="about" class="py-14 sm:py-20">
+  <Container>
+    <BlurFade client:visible>
+      <span
+        class="mb-3 block text-xs font-bold uppercase tracking-widest"
+        style="color: var(--accent-from);"
+      >
+        // about
+      </span>
+      <h2 class="text-2xl font-extrabold sm:text-3xl" style="color: var(--text);">
+        Who's behind the keyboard
+      </h2>
+      <p class="mt-4 text-base sm:text-lg" style="color: var(--text-muted);">
+        {about.bio}
+      </p>
+
+      <div class="mt-6 flex flex-wrap gap-2">
+        {about.skills.map((skill) => (
+          <span
+            class="rounded-full border px-3 py-1.5 text-xs sm:text-sm"
+            style="border-color: var(--border); color: var(--text);"
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
+    </BlurFade>
+  </Container>
+</section>
