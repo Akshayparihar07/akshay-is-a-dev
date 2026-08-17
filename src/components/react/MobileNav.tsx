@@ -27,7 +27,7 @@ export default function MobileNav({
   }, [open]);
 
   return (
-    <div className="lg:hidden">
+    <div>
       <button
         type="button"
         className="inline-flex h-10 w-10 items-center justify-center rounded-full border"

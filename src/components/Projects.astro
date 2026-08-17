@@ -18,15 +18,11 @@ const { projects } = portfolio;
       </h2>
     </BlurFade>
 
-    <div class="flex flex-col">
-      {projects.map((project, i) => (
-        <BlurFade
-          client:visible
-          delay={i * 0.08}
-          className={i === projects.length - 1 ? undefined : "mb-12"}
-        >
+    <ul class="project-list">
+      {projects.map((project) => (
+        <li>
           <article
-            class="overflow-hidden rounded-2xl border transition-transform duration-200 hover:-translate-y-1"
+            class="overflow-hidden rounded-2xl border"
             style="border-color: var(--border); background-color: var(--bg-alt);"
           >
             <img
@@ -77,8 +73,8 @@ const { projects } = portfolio;
               </div>
             </div>
           </article>
-        </BlurFade>
+        </li>
       ))}
-    </div>
+    </ul>
   </Container>
 </section>

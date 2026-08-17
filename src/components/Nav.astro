@@ -53,7 +53,7 @@ const closeIcon = evaSvg("close-outline", {
     </a>
 
     <nav
-      class="hidden min-w-0 items-center gap-6 whitespace-nowrap text-sm lg:flex"
+      class="hidden min-w-0 items-center gap-6 whitespace-nowrap text-sm xl:flex"
       style="color: var(--text-muted);"
     >
       {links.map((link) => (
@@ -67,13 +67,15 @@ const closeIcon = evaSvg("close-outline", {
       ))}
     </nav>
 
-    <div class="hidden shrink-0 items-center gap-3 pr-10 text-xs sm:text-sm lg:flex" style="color: var(--text-muted);">
-      {socials.slice(0, 2).map((s) => (
-        <SocialLink label={s.label} url={s.url} />
-      ))}
+    <div class="hidden shrink-0 items-center gap-3 pr-10 text-xs sm:text-sm xl:flex" style="color: var(--text-muted);">
+      {socials
+        .filter((s) => s.label === "twitter" || s.label === "github" || s.label === "linkedin")
+        .map((s) => (
+          <SocialLink label={s.label} url={s.url} />
+        ))}
     </div>
 
-    <div class="pr-10 lg:hidden">
+    <div class="pr-10 xl:hidden">
       <MobileNav
         client:load
         links={mobileLinks}
