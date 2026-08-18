@@ -3,7 +3,7 @@ import Icon from "./Icon.astro";
 import MobileNav from "./react/MobileNav.tsx";
 import portfolio from "../data/portfolio.json";
 
-const { meta } = portfolio;
+const { meta, socials } = portfolio;
 
 const links = [
   { href: "#about", icon: "user", label: "About" },
@@ -18,7 +18,7 @@ const links = [
   class="sticky top-0 z-40"
   style="background-color: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border);"
 >
-  <div class="relative mx-auto flex max-w-5xl items-center justify-between gap-4 py-4 pl-5 pr-14 sm:pl-6 sm:pr-16">
+  <div class="relative mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-4 sm:px-6 xl:pr-16">
     <a
       href="#top"
       class="inline-flex shrink-0 items-center gap-1.5 font-extrabold text-base sm:text-lg"
@@ -44,7 +44,7 @@ const links = [
     </nav>
 
     <div class="xl:hidden">
-      <MobileNav client:load links={[...links]} />
+      <MobileNav client:load links={[...links]} socials={socials} />
     </div>
   </div>
 </header>

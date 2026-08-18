@@ -19,6 +19,8 @@ import { Radio } from "@/components/animate-ui/icons/radio";
 import { Blocks } from "@/components/animate-ui/icons/blocks";
 import { ClipboardList } from "@/components/animate-ui/icons/clipboard-list";
 import { Sparkle } from "@/components/animate-ui/icons/sparkle";
+import { Sun } from "@/components/animate-ui/icons/sun";
+import { Moon } from "@/components/animate-ui/icons/moon";
 import { LayoutDashboard } from "@/components/animate-ui/icons/layout-dashboard";
 import { Link2 } from "@/components/animate-ui/icons/link-2";
 import {
@@ -56,6 +58,8 @@ const ICONS = {
   blocks: Blocks,
   "clipboard-list": ClipboardList,
   sparkle: Sparkle,
+  sun: Sun,
+  moon: Moon,
   "layout-dashboard": LayoutDashboard,
   "link-2": Link2,
   briefcase: Briefcase,

@@ -21,6 +21,12 @@ html.dark {
   --pullcord-ink: rgba(255, 255, 255, 0.28);
 }
 
+@media (max-width: 1279px) {
+  .pullcord {
+    display: none !important;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   background-color: var(--bg);

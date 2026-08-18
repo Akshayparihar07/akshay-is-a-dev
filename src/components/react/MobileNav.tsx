@@ -1,11 +1,29 @@
 import { useEffect, useId, useState } from "react";
 import AuiIcon from "./AuiIcon";
+import { socialIcon } from "@/lib/icons";
+import { toggleTheme } from "@/lib/theme";
 
 type NavLink = { href: string; label: string; icon: string };
+type Social = { label: string; url: string };
 
-export default function MobileNav({ links }: { links: NavLink[] }) {
+export default function MobileNav({
+  links,
+  socials,
+}: {
+  links: NavLink[];
+  socials: Social[];
+}) {
   const [open, setOpen] = useState(false);
+  const [dark, setDark] = useState(false);
   const panelId = useId();
+
+  useEffect(() => {
+    const sync = () => setDark(document.documentElement.classList.contains("dark"));
+    sync();
+    const obs = new MutationObserver(sync);
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => obs.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -17,7 +35,16 @@ export default function MobileNav({ links }: { links: NavLink[] }) {
   }, [open]);
 
   return (
-    <div>
+    <div className="flex items-center gap-2">
+      <button
+        type="button"
+        className="inline-flex h-10 w-10 items-center justify-center rounded-full border"
+        style={{ borderColor: "var(--border)", color: "var(--text)" }}
+        aria-label="Toggle theme"
+        onClick={toggleTheme}
+      >
+        <AuiIcon name={dark ? "moon" : "sun"} size={20} />
+      </button>
       <button
         type="button"
         className="inline-flex h-10 w-10 items-center justify-center rounded-full border"
@@ -54,6 +81,29 @@ export default function MobileNav({ links }: { links: NavLink[] }) {
               </a>
             ))}
           </nav>
+          <div
+            className="mx-auto mt-3 flex max-w-5xl gap-2 border-t pt-3"
+            style={{ borderColor: "var(--border)" }}
+          >
+            {socials.map((social) => {
+              const external = /^https?:\/\//.test(social.url);
+              return (
+                <a
+                  key={social.label}
+                  href={social.url}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border capitalize"
+                  style={{ borderColor: "var(--border)", color: "var(--text)" }}
+                  aria-label={social.label}
+                  {...(external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  onClick={() => setOpen(false)}
+                >
+                  <AuiIcon name={socialIcon(social.label)} size={18} />
+                </a>
+              );
+            })}
+          </div>
         </div>
       ) : null}
     </div>
