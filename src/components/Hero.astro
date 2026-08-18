@@ -5,8 +5,9 @@ import portfolio from "../data/portfolio.json";
 import BlurFade from "./react/BlurFade.tsx";
 import GradientText from "./react/GradientText.tsx";
 import ShimmerButton from "./react/ShimmerButton.tsx";
+import SocialRadialNav from "./react/SocialRadialNav.tsx";
 
-const { meta } = portfolio;
+const { meta, socials } = portfolio;
 const initials = meta.name
   .split(" ")
   .map((n) => n[0])
@@ -15,11 +16,17 @@ const initials = meta.name
   .toUpperCase();
 ---
 
-<section id="top" class="relative overflow-hidden pt-16 pb-14 sm:pt-24 sm:pb-20">
+<section id="top" class="relative pt-16 pb-14 sm:pt-24 sm:pb-20">
   <div
-    class="pointer-events-none absolute inset-0 -z-10"
+    class="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
     style="background: radial-gradient(600px circle at 50% 0%, color-mix(in srgb, var(--accent-from) 7%, transparent), transparent 70%);"
   >
+  </div>
+
+  <div class="pointer-events-none absolute top-3 left-8 z-10 sm:top-4 sm:left-10">
+    <div class="pointer-events-auto">
+      <SocialRadialNav client:load socials={socials} />
+    </div>
   </div>
 
   <Container class="text-center">
@@ -34,7 +41,7 @@ const initials = meta.name
 
     <div class="mb-4 flex items-center justify-center gap-1.5">
       <span style="color: var(--accent-from);">
-        <Icon name="flash-outline" size={14} animation="pulse" />
+        <Icon name="sparkle" size={14} />
       </span>
       <GradientText client:load className="text-xs sm:text-sm font-bold uppercase tracking-widest">
         {meta.role}
@@ -56,11 +63,11 @@ const initials = meta.name
     <BlurFade client:load delay={0.26}>
       <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
         <ShimmerButton client:load href="#projects">
-          <Icon name="briefcase-outline" size={16} animation="zoom" />
+          <Icon name="briefcase" size={16} />
           See my work
         </ShimmerButton>
         <ShimmerButton client:load href={`mailto:${meta.email}`} variant="ghost">
-          <Icon name="email-outline" size={16} animation="pulse" />
+          <Icon name="send" size={16} />
           Say hi
         </ShimmerButton>
       </div>

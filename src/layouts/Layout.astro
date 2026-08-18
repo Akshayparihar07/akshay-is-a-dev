@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import portfolio from "../data/portfolio.json";
 import ThemeToggle from "../components/react/ThemeToggle.tsx";
+import ScrollProgressBar from "../components/react/ScrollProgressBar.tsx";
 
 interface Props {
   title?: string;
@@ -71,6 +72,7 @@ html.dark {
     </script>
   </head>
   <body>
+    <ScrollProgressBar client:load />
     <ThemeToggle client:load />
     <slot />
   </body>

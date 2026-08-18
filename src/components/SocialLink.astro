@@ -1,6 +1,6 @@
 ---
 import Icon from "./Icon.astro";
-import { socialIcon } from "../lib/eva";
+import { socialIcon } from "../lib/icons";
 
 interface Props {
   label: string;
@@ -14,8 +14,8 @@ const { label, url } = Astro.props;
   href={url}
   target="_blank"
   rel="noopener noreferrer"
-  class="eva-parent-hover inline-flex items-center gap-1.5 capitalize hover:opacity-70 transition-opacity"
+  class="inline-flex items-center gap-1.5 capitalize hover:opacity-70 transition-opacity"
 >
-  <Icon name={socialIcon(label)} size={16} animation="zoom" />
+  <Icon name={socialIcon(label)} size={16} />
   <span>{label}</span>
 </a>

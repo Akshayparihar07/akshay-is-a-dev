@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import AuiIcon from "./AuiIcon";
 
 interface ExperienceItem {
   period: string;
@@ -12,10 +13,8 @@ interface ExperienceItem {
 
 export default function Timeline({
   items,
-  periodIcon,
 }: {
   items: ExperienceItem[];
-  periodIcon?: string;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -48,15 +47,10 @@ export default function Timeline({
               style={{ background: "var(--bg)", borderColor: "var(--accent-from)" }}
             />
             <p
-              className="eva-parent-hover mb-1 inline-flex items-center gap-1.5 text-xs tracking-wide uppercase sm:text-sm"
+              className="mb-1 inline-flex items-center gap-1.5 text-xs tracking-wide uppercase sm:text-sm"
               style={{ color: "var(--text-muted)" }}
             >
-              {periodIcon ? (
-                <span
-                  className="inline-flex"
-                  dangerouslySetInnerHTML={{ __html: periodIcon }}
-                />
-              ) : null}
+              <AuiIcon name="calendar" size={14} />
               {item.period}
             </p>
             <h3 className="flex items-center gap-2.5 text-lg font-bold sm:text-xl" style={{ color: "var(--text)" }}>

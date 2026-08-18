@@ -4,7 +4,7 @@ import SectionEyebrow from "./SectionEyebrow.astro";
 import Icon from "./Icon.astro";
 import portfolio from "../data/portfolio.json";
 import BlurFade from "./react/BlurFade.tsx";
-import { skillIcon } from "../lib/eva";
+import { skillIcon } from "../lib/icons";
 
 const { about } = portfolio;
 ---
@@ -12,7 +12,7 @@ const { about } = portfolio;
 <section id="about" class="py-14 sm:py-20">
   <Container>
     <BlurFade client:visible>
-      <SectionEyebrow icon="person-outline">// about</SectionEyebrow>
+      <SectionEyebrow icon="user">// about</SectionEyebrow>
       <h2 class="text-2xl font-extrabold sm:text-3xl" style="color: var(--text);">
         Who's behind the keyboard
       </h2>
@@ -23,10 +23,10 @@ const { about } = portfolio;
       <div class="mt-6 flex flex-wrap gap-2">
         {about.skills.map((skill) => (
           <span
-            class="eva-parent-hover inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs sm:text-sm"
+            class="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs sm:text-sm"
             style="border-color: var(--border); color: var(--text);"
           >
-            <Icon name={skillIcon(skill)} size={14} animation="zoom" />
+            <Icon name={skillIcon(skill)} size={14} />
             {skill}
           </span>
         ))}

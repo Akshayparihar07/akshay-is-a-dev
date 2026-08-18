@@ -39,6 +39,15 @@ export default function ThemeToggle() {
       onPull={toggleTheme}
       pulled={!dark}
       ariaLabel="Toggle theme"
+      config={{
+        gravity: 900,
+        damping: 0.98,
+        iterations: 12,
+        stretchMax: 52,
+        stretchToggle: 22,
+        maxVelocity: 42,
+        sleepVelocity: 0.04,
+      }}
     />
   );
 }

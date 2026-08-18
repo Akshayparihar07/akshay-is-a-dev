@@ -5,6 +5,7 @@ import {
   type JellyBlobMood,
 } from "feral-blob";
 import "feral-blob/blob.css";
+import AuiIcon from "./AuiIcon";
 
 const PROTEST = ["Stop it!", "Quit it!", "Enough!", "Ow, stop!", "Hey!!"] as const;
 
@@ -34,13 +35,7 @@ function holdHandlers(setOn: (on: boolean) => void) {
   };
 }
 
-type BlobIcons = {
-  smile: string;
-  hmm: string;
-  sideEye: string;
-};
-
-export default function Blob({ icons }: { icons?: BlobIcons }) {
+export default function Blob() {
   const [smile, setSmile] = useState(false);
   const [hmm, setHmm] = useState(false);
   const [sideEye, setSideEye] = useState(false);
@@ -102,9 +97,7 @@ export default function Blob({ icons }: { icons?: BlobIcons }) {
             setSmile(on);
           })}
         >
-          {icons?.smile ? (
-            <span className="inline-flex" dangerouslySetInnerHTML={{ __html: icons.smile }} />
-          ) : null}
+          <AuiIcon name="smile" size={20} />
         </button>
         <button
           type="button"
@@ -112,9 +105,7 @@ export default function Blob({ icons }: { icons?: BlobIcons }) {
           aria-label="Hmm"
           {...holdHandlers(setHmm)}
         >
-          {icons?.hmm ? (
-            <span className="inline-flex" dangerouslySetInnerHTML={{ __html: icons.hmm }} />
-          ) : null}
+          <AuiIcon name="message-circle-question" size={20} />
         </button>
         <button
           type="button"
@@ -122,9 +113,7 @@ export default function Blob({ icons }: { icons?: BlobIcons }) {
           aria-label="Side eye"
           {...holdHandlers(setSideEye)}
         >
-          {icons?.sideEye ? (
-            <span className="inline-flex" dangerouslySetInnerHTML={{ __html: icons.sideEye }} />
-          ) : null}
+          <AuiIcon name="eye" size={20} />
         </button>
       </div>
     </div>

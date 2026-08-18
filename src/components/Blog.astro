@@ -19,7 +19,7 @@ function formatDate(iso: string) {
 <section id="blog" class="py-14 sm:py-20" style="border-top: 1px solid var(--border);">
   <Container>
     <BlurFade client:visible>
-      <SectionEyebrow icon="book-open-outline">// writing</SectionEyebrow>
+      <SectionEyebrow icon="book-open">// writing</SectionEyebrow>
       <h2 class="mb-10 text-2xl font-extrabold sm:text-3xl" style="color: var(--text);">
         Latest posts
       </h2>
@@ -33,13 +33,13 @@ function formatDate(iso: string) {
           as="li"
           className="border-t border-t-[var(--border)] first:border-t-0"
         >
-          <a href={post.url} class="eva-parent-hover group flex items-start gap-3 py-5">
+          <a href={post.url} class="group flex items-start gap-3 py-5">
             <span class="mt-1 shrink-0" style="color: var(--accent-from);">
-              <Icon name="file-text-outline" size={18} animation="zoom" />
+              <Icon name="clipboard-list" size={18} />
             </span>
             <span class="min-w-0 flex-1">
               <p class="inline-flex items-center gap-1.5 text-xs font-medium" style="color: var(--text-muted);">
-                <Icon name="calendar-outline" size={13} />
+                <Icon name="calendar" size={13} />
                 {formatDate(post.date)}
               </p>
               <h3
@@ -57,7 +57,7 @@ function formatDate(iso: string) {
               style="color: var(--accent-from);"
               aria-hidden="true"
             >
-              <Icon name="arrow-ios-forward-outline" size={20} animation="zoom" />
+              <Icon name="arrow-right" size={20} />
             </span>
           </a>
         </BlurFade>
